@@ -1,0 +1,63 @@
+The algorithm used in the code provided finds the route that  son traveled based on the given available tickets and the starting city (Kiev). Here's a step-by-step explanation of the algorithm:
+THe alogorithm used in the above code is DFS algorithm (Depth-First Search) which helps to explore all the possible routes through the available tickets while keeping track of visited cities and backtracking when necessary. It returns the route if a valid one exists or null otherwise.
+Define the Data Structures:
+    routes: An object representing available tickets/routes. Each ticket maps to a destination city.
+    visited: An object to keep track of visited cities to avoid revisiting them.
+Define the findRoute Function:
+    This function takes three parameters: currentCity, visited, and path.
+    currentCity: The current city being explored.
+    visited: The object to keep track of visited cities.
+    path: An array to store the current route being explored.
+DFS Exploration:
+    Mark the currentCity as visited by setting visited[currentCity] to true.
+    Add the currentCity to the path array, indicating that it's part of the current route.
+Check for Completion:
+    Check if the length of the path array is equal to the total number of cities (the length of the routes object plus 1). If it is, this means that we have visited all cities, and a valid route is found. Return the path array.
+Exploration of Next Cities:
+    Loop through all available tickets/routes in the routes object.
+    For each ticket, check if it has not been visited (!visited[ticket]) and if its destination city (routes[ticket]) matches the currentCity.
+    If both conditions are met, it means that this ticket can be used to travel to the next city.
+    Extract the nextCity from the ticket (the part before the hyphen), and recursively call findRoute with nextCity as the new currentCity.
+Backtracking:
+    If no valid route is found from the currentCity, mark the currentCity as unvisited (visited[currentCity] = false) and remove it from the path array to backtrack.
+Return Result:
+    If a valid route is found, it's returned as an array of cities joined by " -> ".
+    If no valid route is found, the function returns null.
+Call the Function:
+    Finally, call the findRoute function with the starting city as 'Kiev' and empty arrays for visited and path.
+    Display the result, which is the route traveled by your son or a message indicating that no valid route exists.
+    
+DATA STRUCTURES
+
+Routes Object (routes):
+    This object represents the available tickets/routes.
+    Each key in the object is a departure city, and the corresponding value is the destination city.
+        Example: const routes = {
+        'Paris': 'Skopje',
+        'Skopje': 'Paris',
+        'Zurich': 'Amsterdam',
+        // ... and so on
+    };
+
+Visited Cities Object (visited):
+
+    This object keeps track of visited cities to avoid revisiting them during the route exploration.
+    Each key in the object represents a city, and the corresponding value is a boolean indicating whether the city has been visited or not.
+    Example: const visited = {
+    'Paris': false,
+    'Skopje': false,
+    // ... and so on
+    };
+findRoute Function:
+    This function takes three parameters:
+    currentCity: The current city being explored during the route search.
+    visited: The object tracking visited cities.
+    path: An array representing the current route being explored.
+Path Array (path):
+
+    This array is used to build and track the current route being explored during the depth-first search.
+    Cities are added to this array as they are visited.
+    Example:
+    const path = ['Kiev', 'Prague', 'Zurich', 'Amsterdam'];
+The data structure is relatively simple, primarily consisting of JavaScript objects to represent routes and visited cities, along with arrays to store the current route
+ being explored. These data structures are used in combination with the depth-first search algorithm to find the route your son traveled.
