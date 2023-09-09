@@ -1,3 +1,5 @@
+ALGORITHM
+
 The algorithm used in the code provided finds the route that  son traveled based on the given available tickets and the starting city (Kiev). Here's a step-by-step explanation of the algorithm:
 THe alogorithm used in the above code is DFS algorithm (Depth-First Search) which helps to explore all the possible routes through the available tickets while keeping track of visited cities and backtracking when necessary. It returns the route if a valid one exists or null otherwise.
 Define the Data Structures:
